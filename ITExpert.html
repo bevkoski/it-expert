@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jQuery Mobile Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        window.location.hash="nb";
+        window.location.hash="anb";
+        window.onhashchange=function(){window.location.hash="nb";}
+    </script>
+</head>
+<body>
+
+<!-- Begin: Intro page -->
+<section id="intro" data-role="page" data-fullscreen="true">
+    <!-- Begin: Header -->
+    <header data-role="header">
+        <div style="text-align: center;">
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext">Icon</a>
+        </div>
+        <p style="text-align: center;">WHO WANTS TO BE AN IT EXPERT?</p>
+    </header>
+    <!-- End: Header -->
+    <!-- Begin: Content -->
+    <div class="content" data-role="content" style="max-width: 500px; text-align: center; margin: 0 auto;">
+        <p>Have you got what it takes to be the ultimate geek?<br/>Tap <b>Play</b> to find out!</p><br/>
+        <a href="#quiz" class="init" data-role="button" data-icon="check" data-iconpos="top" data-transition="slide" style="width: 125px; margin: 0 auto;">Play</a><br/>
+        <a href="#settings" data-role="button" data-icon="gear" data-iconpos="top" style="width: 75px; margin: 0 auto;">Settings</a>
+    </div>
+    <!-- End: Content -->
+    <!-- Begin: Footer -->
+    <footer data-role="footer" data-position="fixed">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <span data-role="navbar">
+                <ul style="margin: 15px;">
+                    <li><a href="#" data-role="button" data-icon="delete" data-iconpos="top" class="ui-disabled">50:50</a></li>
+                    <li><a href="#" data-role="button" data-icon="star" data-iconpos="top" class="ui-disabled">Friend</a></li>
+                    <li><a href="#" data-role="button" data-icon="grid" data-iconpos="top" class="ui-disabled">Audience</a></li>
+                    <li><a href="#" data-role="button" data-icon="home" data-iconpos="top" style="margin-left: 10px; margin-right: 0px;" class="ui-disabled">Quit</a></li>
+                </ul>
+            </span>
+        </div>
+    </footer>
+    <!-- End: Footer -->
+</section>
+<!-- End: Intro page -->
+
+<!-- Begin: Quiz page -->
+<section id="quiz" data-role="page" data-fullscreen="true">
+    <!-- Begin: Header -->
+    <header data-role="header">
+        <div style="text-align: center;">
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext">Icon</a>
+        </div>
+        <p style="text-align: center;">WHO WANTS TO BE AN IT EXPERT?</p>
+    </header>
+    <!-- End: Header -->
+    <!-- Begin: Content -->
+    <div class="content" data-role="content" style="max-width: 500px; margin: 0 auto;">
+        <h3>Question no. <span id="questionNo">1</span></h3>
+        <p id="questionTxt">I'm sure you've heard of jQuery... What do you think, what is it?</p>
+        <div data-role="controlgroup">
+            <a class="answer" id="answer1" href="#" data-role="button">A Javascript library</a>
+            <a class="answer" id="answer2" data-role="button">A type of brownie</a>
+            <a class="answer" id="answer3" data-role="button">Hashing algorithm</a>
+            <a class="answer" id="answer4" data-role="button">A type of processor</a>
+        </div>
+    </div>
+    <!-- End: Content -->
+    <!-- Begin: Footer -->
+    <footer data-role="footer" data-position="fixed">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <span data-role="navbar">
+                <ul style="margin: 15px;">
+                    <li><a id="fiftyBtn" class="joker" data-role="button" data-icon="delete" data-iconpos="top">50:50</a></li>
+                    <li><a href="#friend" data-rel="dialog" id="friendBtn" class="joker" data-role="button" data-icon="star" data-iconpos="top">Friend</a></li>
+                    <li><a href="#audience" data-rel="dialog" id="audienceBtn" class="joker" data-role="button" data-icon="grid" data-iconpos="top">Audience</a></li>
+                    <li><a href="#quit" data-rel="dialog" data-role="button" data-icon="home" data-iconpos="top" style="margin-left: 10px; margin-right: 0px;">Quit</a></li>
+                </ul>
+            </span>
+        </div>
+    </footer>
+    <!-- End: Footer -->
+</section>
+<!-- End: Quiz page -->
+
+<!-- Begin: Settings page -->
+<section id="settings" data-role="page" data-fullscreen="true">
+    <!-- Begin: Header -->
+    <header data-role="header">
+        <div style="text-align: center;">
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext">Icon</a>
+        </div>
+        <p style="text-align: center;">WHO WANTS TO BE AN IT EXPERT?</p>
+    </header>
+    <!-- End: Header -->
+    <!-- Begin: Content -->
+    <div class="content" data-role="content" style="max-width: 500px; margin: 0 auto;">
+        <h3>Settings</h3>
+        <label for="slider-jokers">Turn <b>jokers</b> on/off</label>
+        <select name="slider-jokers" id="slider-jokers" data-role="slider">
+            <option value="on">On</option>
+            <option value="off">Off</option>
+        </select>
+        <label for="slider-answers">Tell me the <b>answer</b> when I miss</label>
+        <select name="slider-answers" id="slider-answers" data-role="slider">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br/><br/>
+        <a href="#intro" data-role="button" style="width: 75px; margin: 0 auto;">Save</a><br/>
+    </div>
+    <!-- End: Content -->
+    <!-- Begin: Footer -->
+    <footer data-role="footer" data-position="fixed">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <span data-role="navbar">
+                <ul style="margin: 15px;">
+                    <li><a href="#" data-role="button" data-icon="delete" data-iconpos="top" class="ui-disabled">50:50</a></li>
+                    <li><a href="#" data-role="button" data-icon="star" data-iconpos="top" class="ui-disabled">Friend</a></li>
+                    <li><a href="#" data-role="button" data-icon="grid" data-iconpos="top" class="ui-disabled">Audience</a></li>
+                    <li><a href="#" data-role="button" data-icon="home" data-iconpos="top" style="margin-left: 10px; margin-right: 0px;" class="ui-disabled">Quit</a></li>
+                </ul>
+            </span>
+        </div>
+    </footer>
+    <!-- End: Footer -->
+</section>
+<!-- End: Settings page -->
+
+<!-- Begin: Quit pop-up -->
+    <section id="quit" data-role="page">
+        <!-- Begin: Header -->
+        <header data-role="header">
+            <div style="text-align: center;">
+                <a href="#" data-role="button" data-icon="info" data-iconpos="notext">Icon</a>
+            </div>
+            <p style="text-align: center;">WHO WANTS TO BE AN IT EXPERT?</p>
+        </header>
+        <!-- End: Header -->
+        <!-- Begin: Content -->
+        <div class="content" data-role="content">
+            <p>Are you sure you want to quit the game?</p>
+            <a href="#intro" data-role="button">Yes</a>
+            <a href="#quiz" data-role="button">No</a>
+        </div>
+        <!-- End: Content -->
+    </section>
+<!-- End: Quit pop-up -->
+
+<!-- Begin: Failure pop-up -->
+<section id="failure" data-role="dialog">
+    <!-- Begin: Header -->
+    <header data-role="header">
+        <div style="text-align: center;">
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext">Icon</a>
+        </div>
+        <p style="text-align: center;">YOU ARE NOT AN IT EXPERT!</p>
+    </header>
+    <!-- End: Header -->
+    <!-- Begin: Content -->
+    <div class="content" data-role="content">
+        <p id="failureAnswerMsg">The correct answer is <b><span id="failureAnswer"></span></b>.</p>
+        <p id="failureMsg">That's not the correct answer!</p>
+        <p>Do you want to try again?</p>
+        <a href="#quiz" class="init" data-role="button">Yes</a>
+        <a href="#intro" data-role="button">No</a>
+    </div>
+    <!-- End: Content -->
+</section>
+<!-- End: Failure pop-up -->
+
+<!-- Begin: Victory pop-up -->
+<section id="victory" data-role="dialog">
+    <!-- Begin: Header -->
+    <header data-role="header">
+        <div style="text-align: center;">
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext">Icon</a>
+        </div>
+        <p style="text-align: center;">YOU ARE AN IT EXPERT!</p>
+    </header>
+    <!-- End: Header -->
+    <!-- Begin: Content -->
+    <div class="content" data-role="content">
+        <p>Congratulations!</p>
+        <p>You indeed are an <b>IT expert</b>.</p>
+        <p>You now have the right to brag to your friends about how cool you are.</p>
+        <a href="#intro" data-role="button">Yey</a>
+    </div>
+    <!-- End: Content -->
+</section>
+<!-- End: Victory pop-up -->
+
+<!-- Begin: Friend pop-up -->
+<section id="friend" data-role="page">
+    <!-- Begin: Header -->
+    <header data-role="header">
+        <div style="text-align: center;">
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext">Icon</a>
+        </div>
+        <p style="text-align: center;">WHO WANTS TO BE AN IT EXPERT?</p>
+    </header>
+    <!-- End: Header -->
+    <!-- Begin: Content -->
+    <div class="content" data-role="content">
+        <p>You call your best friend.</p>
+        <p>He says that the correct answer is <b><span id="friendAnswer"></span></b>.</p>
+        <a href="#quiz" data-role="button">OK</a>
+    </div>
+    <!-- End: Content -->
+</section>
+<!-- End: Friend pop-up -->
+
+<!-- Begin: Audience pop-up -->
+<section id="audience" data-role="page">
+    <!-- Begin: Header -->
+    <header data-role="header">
+        <div style="text-align: center;">
+            <a href="#" data-role="button" data-icon="info" data-iconpos="notext">Icon</a>
+        </div>
+        <p style="text-align: center;">WHO WANTS TO BE AN IT EXPERT?</p>
+    </header>
+    <!-- End: Header -->
+    <!-- Begin: Content -->
+    <div class="content" data-role="content">
+        <p>The audience votes. These are the results.</p>
+        <div id="votes"></div>
+        <a href="#quiz" data-role="button">OK</a>
+    </div>
+    <!-- End: Content -->
+</section>
+<!-- End: Audience pop-up -->
+
+<script>
+    /* Begin: Question class */
+    function Question ( question, answer1, answer2, answer3, answer4, correct ) {
+        this.question = question;
+        this.answer1 = answer1;
+        this.answer2 = answer2;
+        this.answer3 = answer3;
+        this.answer4 = answer4;
+        this.correct = correct;
+    }
+    /* End: Question class */
+
+    /* Begin: Fill questions array */
+    var questions = [];
+    questions.push(new Question(
+            'The step-by-step instructions that solve a problem are called...',
+            "An algorithm",
+            "A list",
+            "A plan",
+            "A sequential structure",
+            "An algorithm"
+    ));
+    questions.push(new Question(
+            'What was originally called the "imitation game" by its creator?',
+            "The Turing Test",
+            "LISP",
+            "The Logic Theorist",
+            "Cybernetics",
+            "The Turing Test"
+    ));
+    questions.push(new Question(
+            "Which of the following computer language is used for artificial intelligence?",
+            "FORTRAN",
+            "PROLOG",
+            "C",
+            "COBOL",
+            "PROLOG"
+    ));
+    questions.push(new Question(
+            "What is the name of the first Windows edition?",
+            "Windows 1.01",
+            "Windows NT 1.0",
+            "Windows ME",
+            "Windows 95",
+            "Windows 1.01"
+    ));
+    questions.push(new Question(
+            "From what location are the 1st computer instructions available on boot up?",
+            "ROM BIOS",
+            "CPU",
+            "boot.ini",
+            "CONFIG.SYS",
+            "ROM BIOS"
+    ));
+    questions.push(new Question(
+            'In SQL, which command is used to make permanent changes made by statements issue since the beginning of a transaction?',
+            "ZIP",
+            "PACK",
+            "COMMIT",
+            "SAVE",
+            "COMMIT"
+    ));
+    questions.push(new Question(
+            "Which symbol will be used with grep command to match the pattern pat at the beginning of a line?",
+            "^pat",
+            "$pat",
+            "pat$",
+            "pat^",
+            "^pat"
+    ));
+    questions.push(new Question(
+            "The strategy of allowing processes that are logically runnable to be temporarily suspended is called",
+            "preemptive scheduling",
+            "non preemptive scheduling",
+            "shortest job first",
+            "first come first served",
+            "preemptive scheduling"
+    ));
+    questions.push(new Question(
+            "The functional difference between SR flip-flop and JK flip-flop is that",
+            "JK flip-flop is faster than SR flip-flop",
+            "JK flip-flop has a feed back path",
+            "JK flip-flop accepts both inputs 1",
+            "JK flip-flop accepts both inputs 0",
+            "JK flip-flop accepts both inputs 1"
+    ));
+    questions.push(new Question(
+            'Flood guns bombard the phosphor surface of the tube in which one of the following types of CRT technology?',
+            "Direct view storage tube",
+            "Raster scan CRT",
+            "Refresh-vector CRT",
+            "Stroke CRT",
+            "Direct view storage tube"
+    ));
+    /* End: Fill questions array */
+
+    /* Begin: Define global variables */
+    var questionNo = 1;
+    var questionNoSpan = $( "#questionNo" );
+    var questionTxtP = $ ( "#questionTxt" );
+    var answer1Btn = $( "#answer1" );
+    var answer2Btn = $( "#answer2" );
+    var answer3Btn = $( "#answer3" );
+    var answer4Btn = $( "#answer4" );
+    var failureAnswer = $( "#failureAnswer" );
+    /* End: Define global variables */
+
+    /* Begin: Document.ready */
+    $( function(){
+
+        /* Begin: initialize quiz */
+        function init() {
+            questionNo = 1;
+            if ( $( "#slider-jokers" ).val() == "on" )
+                $( ".joker" ).removeClass( "ui-disabled" );
+            else
+                $( ".joker" ).addClass( "ui-disabled" );
+            if ( $( "#slider-answers").val() == "yes" ) {
+                $( "#failureAnswerMsg" ).show();
+                $( "#failureMsg" ).hide();
+            } else {
+                $( "#failureAnswerMsg" ).hide();
+                $( "#failureMsg" ).show();
+            }
+            setFields();
+        }
+        /* End: initialize quiz */
+
+        /* Begin: Set fields */
+        function setFields(){
+            questionNoSpan.html( questionNo );
+            questionTxtP.html( questions[questionNo-1].question );
+            answer1Btn.html( questions[questionNo-1].answer1 );
+            answer2Btn.html( questions[questionNo-1].answer2 );
+            answer3Btn.html( questions[questionNo-1].answer3 );
+            answer4Btn.html( questions[questionNo-1].answer4 );
+            $( ".answer").removeClass( "ui-disabled" );
+        }
+        /* End: Set fields */
+
+        /* Begin: Bind answer handler */
+        $( ".answer" ).bind( "tap", answerHandler );
+        function answerHandler( event ){
+            // fetch the answer
+            var answer = $( this ).html();
+
+            // compare the answer to the correct one
+            if ( questions[questionNo-1].correct == answer ){
+                questionNo++;
+                if ( questionNo == questions.length+1 ) {
+                    $.mobile.changePage("#victory");
+                } else {
+                    setFields();
+                    $.mobile.changePage( "#quiz", { allowSamePageTransition:true, transition: "slide", changeHash: true } );
+                }
+            } else {
+                $("#failureAnswer").html(questions[questionNo-1].correct);
+                $.mobile.changePage( "#failure", "fade", true, true );
+            }
+        };
+        /* End: Bind answer handler */
+
+        /* Begin: Bind init handler */
+        $( ".init" ).bind( "tap", initHandler );
+        function initHandler( event ){
+            init();
+        };
+        /* End: Bind init handler */
+
+        /* Begin: Bind fifty:fifty handler */
+        $( "#fiftyBtn" ).bind( "tap", fiftyHandler );
+        function fiftyHandler( event ){
+            $( "#fiftyBtn").addClass( "ui-disabled" );
+            var question = questions[questionNo-1];
+            var disables = 0;
+
+            if ( question.answer1 != question.correct ){
+                $("#answer1").addClass("ui-disabled");
+                disables++;
+            }
+            if ( question.answer2 != question.correct ){
+                $("#answer2").addClass("ui-disabled");
+                disables++;
+            }
+            if (disables == 2)
+                return;
+            if ( question.answer3 != question.correct ){
+                $("#answer3").addClass("ui-disabled");
+                disables++;
+            }
+            if (disables == 2)
+                return;
+            if ( question.answer4 != question.correct )
+                $("#answer4").addClass("ui-disabled");
+        };
+        /* End: bind fifty:fifty handler */
+
+        /* Begin: Bind friend handler */
+        $( "#friendBtn" ).bind( "tap", friendHandler );
+        function friendHandler( event ){
+            $( "#friendAnswer").html( questions[questionNo-1].correct );
+            $( "#friendBtn").addClass( "ui-disabled" );
+        };
+        /* End: bind friend handler */
+
+        /* Begin: Bind audience handler */
+        $( "#audienceBtn" ).bind( "tap", audienceHandler );
+        function audienceHandler( event ){
+            var html = "";
+            var question = questions[questionNo-1];
+
+            html += "<div><b>" + question.answer1 + "</b>: ";
+            if ( question.answer1 == question.correct )
+                html += "55%</div>";
+            else
+                html += "15%</div>";
+            html += "<div><b>" + question.answer2 + "</b>: ";
+            if ( question.answer2 == question.correct )
+                html += "55%</div>";
+            else
+                html += "15%</div>";
+            html += "<div><b>" + question.answer3 + "</b>: ";
+            if ( question.answer3 == question.correct )
+                html += "55%</div>";
+            else
+                html += "15%</div>";
+            html += "<div><b>" + question.answer4 + "</b>: ";
+            if ( question.answer4 == question.correct )
+                html += "55%</div>";
+            else
+                html += "15%</div>";
+
+            $( "#votes").html( html );
+            $( "#audienceBtn").addClass( "ui-disabled" );
+        };
+        /* End: bind audience handler */
+
+    });
+    /* End: Document.ready */
+</script>
+</body>
+</html>
